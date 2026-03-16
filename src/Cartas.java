@@ -3,8 +3,7 @@ import java.util.Arrays;
 
 public class Cartas {
     String preflop1, preflop2;
-    String palo;
-    String valor;
+    int jugadores;
 
     Scanner sc = new Scanner(System.in);
 
@@ -19,6 +18,12 @@ public class Cartas {
             // Rombos (R)
             "AR","2R","3R","4R","5R","6R","7R","8R","9R","JR","QR","KR","10R"
     };
+
+    public void TomarJugadores(){
+        System.out.println("Los jugadores sin contarte a ti = ");
+        jugadores = sc.nextInt();
+        sc.nextLine();
+    }
 
     public void PreFlopTomarDatosYValido(){
         System.out.println("Introduce tu 1º carta (ej: AC o KP): ");
@@ -41,7 +46,46 @@ public class Cartas {
             preflop2 = preflop2.toUpperCase();
 
         }
+        while(preflop1.equals(preflop2)){
+            System.out.println("Las dos cartas no pueden ser iguales");
+            System.out.println("Introduce tu 2ª carta (ej: AC o KP): ");
+            preflop2 = sc.nextLine();
+            preflop2 = preflop2.toUpperCase();
+        }
 
+    }
+
+    public int EvaluarPreFlop(String preflop1, String preflop2){
+        String valor1, valor2;
+        String palo1, palo2;
+        String[] orden = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
+
+        valor1 = preflop1.substring(0, preflop1.length() - 1);
+        valor2 = preflop2.substring(0, preflop2.length() - 1);
+
+        palo1 = preflop1.substring(preflop1.length() - 1);
+        palo2 = preflop2.substring(preflop2.length() - 1);
+
+        boolean esPar = valor1.equals(valor2);
+        boolean esSuited = palo1.equals(palo2);
+        boolean esConector = sonConsecutivos(valor1, valor2);
+
+        //condiciones
+        if(esPar){
+            return 5 + Arrays.asList(orden).indexOf(valor1);
+        }
+        if (esSuited && esConector) return 4;
+        if (esSuited) return 3;
+        if (esConector) return 2;
+        return 1; // carta alta normal
+    }
+
+    public boolean sonConsecutivos(String v1, String v2){
+    String[] orden = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
+
+    int pos1 = Arrays.asList(orden).indexOf(v1);
+    int pos2 = Arrays.asList(orden).indexOf(v2);
+    return Math.abs(pos1-pos2) == 1;
     }
 
 

@@ -2,17 +2,12 @@ import java.util.Scanner;
 
 
 void main() {
-
-    int jugadores = 0;//solo contrincantes
-    String preflop1;
-    String preflop2;
-
     Scanner sc = new Scanner(System.in);
     Cartas cartas = new Cartas();
 
-    System.out.println("Los jugadores sin contarte a ti = ");
-    jugadores = sc.nextInt();
-    sc.nextLine();
+
+    cartas.TomarJugadores();
+
 
     System.out.println("Las cartas se deben representar = ");
     System.out.println("A   2   3   4       ||\n5   6   7   8       ||+ ( ❤=C // ♣=T // ♠=P // \uD83D\uDD36 =R )\n9   10  J   Q   K   ||");
