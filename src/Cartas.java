@@ -19,11 +19,7 @@ public class Cartas {
     };
 
     public void TomarJugadores(){
-        System.out.println("Los jugadores sin contarte a ti = ");
-        jugadores = sc.nextInt();
-        sc.nextLine();
-
-        if(jugadores <= 1 || jugadores > 9){
+        while(jugadores <= 1 || jugadores > 9){
             System.out.println("Los jugadores sin contarte a ti = ");
             jugadores = sc.nextInt();
             sc.nextLine();
@@ -94,6 +90,37 @@ public class Cartas {
     }
 
 
+    public double MonteCarloPreFlop(String preflop1, String preflop2, int jugadores){
+        int simulaciones = 100000;
+        int victorias = 0;
+
+        for(int i = 0 ; i <= simulaciones; i++){
+            List<String> cartasPreFlop = new ArrayList<>(Arrays.asList(todasCartas));
+            cartasPreFlop.remove(preflop1);
+            cartasPreFlop.remove(preflop2);
+
+            //barajo
+            Collections.shuffle(cartasPreFlop);
+
+            //Quito cartas dependiendo de jugadores
+            int cartasJugadores = jugadores*2;
+            for (int j = 0; j < cartasJugadores; j++){
+                cartasPreFlop.remove(0);
+            }
+
+            //Quito cartas de la mesa
+            for (int j = 0; j < 5; j++){
+                cartasPreFlop.remove(0);
+            }
+
+            int miScore = EvaluarPreFlop(preflop1, preflop2);
+
+            victorias = victorias + 1;
+
+        }
+
+        return (double) (victorias/simulaciones) * 100;
+    }
 }
 
 
