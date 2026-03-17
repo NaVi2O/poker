@@ -90,37 +90,45 @@ public class Cartas {
     }
 
 
-    public double MonteCarloPreFlop(String preflop1, String preflop2, int jugadores){
+    public void MonteCarloPreFlop(){
         int simulaciones = 100000;
         int victorias = 0;
 
-        for(int i = 0 ; i <= simulaciones; i++){
-            List<String> cartasPreFlop = new ArrayList<>(Arrays.asList(todasCartas));
-            cartasPreFlop.remove(preflop1);
-            cartasPreFlop.remove(preflop2);
+        for(int i = 0; i < simulaciones; i++){
+            List<String> mazo = new ArrayList<>(Arrays.asList(todasCartas));
+            mazo.remove(preflop1);
+            mazo.remove(preflop2);
 
-            //barajo
-            Collections.shuffle(cartasPreFlop);
+            Collections.shuffle(mazo);
 
-            //Quito cartas dependiendo de jugadores
-            int cartasJugadores = jugadores*2;
-            for (int j = 0; j < cartasJugadores; j++){
-                cartasPreFlop.remove(0);
-            }
-
-            //Quito cartas de la mesa
-            for (int j = 0; j < 5; j++){
-                cartasPreFlop.remove(0);
-            }
-
+            // Guardar cartas de rivales y comparar
             int miScore = EvaluarPreFlop(preflop1, preflop2);
+            boolean gano = true;
 
-            victorias = victorias + 1;
+            for(int j = 0; j < jugadores; j++){
+                String carta1Rival = mazo.remove(0);
+                String carta2Rival = mazo.remove(0);
+                int scoreRival = EvaluarPreFlop(carta1Rival, carta2Rival);
 
+                if(scoreRival >= miScore){
+                    gano = false;
+                    break;
+                }
+            }
+
+            // Quitar las 5 del tablero
+            for(int j = 0; j < 5; j++){
+                mazo.remove(0);
+            }
+
+            if(gano) victorias++;
         }
 
-        return (double) (victorias/simulaciones) * 100;
+        double porcentaje = (double) victorias / simulaciones * 100;
+        System.out.printf("Tu probabilidad de ganar: %.2f%%%n", porcentaje);
     }
+
+
 }
 
 

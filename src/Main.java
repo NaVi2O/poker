@@ -13,6 +13,8 @@ void main() {
 
     cartas.PreFlopTomarDatosYValido();
 
+    cartas.MonteCarloPreFlop();
+
 
 
 
