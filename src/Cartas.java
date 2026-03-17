@@ -106,7 +106,23 @@ public class Cartas {
         todasCartas.remove(preflop1);
         todasCartas.remove(preflop2);
 
-        Collections.shuffle(todasCartas);   //barajo cartas
+        Collections.shuffle(todasCartas);//barajo cartas
+        int index = 0;
+
+        ArrayList<ArrayList<String>> cartasRivales = new ArrayList<>();
+        for (int i = 0; i < jugadores; i++){
+            ArrayList<String> mano = new ArrayList<>();
+            mano.add(todasCartas.get(index++));
+            mano.add(todasCartas.get(index++));
+            cartasRivales.add(mano);
+        }
+
+        ArrayList<String> mesa = new ArrayList<>();
+        for(int i = 0; i < 5; i++){
+            mesa.add(todasCartas.get(index++));
+        }
+
+
 
 
 
