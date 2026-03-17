@@ -1,5 +1,4 @@
-import java.util.Scanner;
-import java.util.Arrays;
+import java.util.*;
 
 public class Cartas {
     String preflop1, preflop2;
@@ -23,6 +22,12 @@ public class Cartas {
         System.out.println("Los jugadores sin contarte a ti = ");
         jugadores = sc.nextInt();
         sc.nextLine();
+
+        if(jugadores <= 1 || jugadores > 9){
+            System.out.println("Los jugadores sin contarte a ti = ");
+            jugadores = sc.nextInt();
+            sc.nextLine();
+        }
     }
 
     public void PreFlopTomarDatosYValido(){
@@ -86,6 +91,25 @@ public class Cartas {
     int pos1 = Arrays.asList(orden).indexOf(v1);
     int pos2 = Arrays.asList(orden).indexOf(v2);
     return Math.abs(pos1-pos2) == 1;
+    }
+
+    public void MonteCarloPreflop(){
+        double porcentaje;
+
+        ArrayList<String> todasCartas = new ArrayList<>(Arrays.asList(
+                "AC","2C","3C","4C","5C","6C","7C","8C","9C","JC","QC","KC","10C",
+                "AT","2T","3T","4T","5T","6T","7T","8T","9T","JT","QT","KT","10T",
+                "AP","2P","3P","4P","5P","6P","7P","8P","9P","JP","QP","KP","10P",
+                "AR","2R","3R","4R","5R","6R","7R","8R","9R","JR","QR","KR","10R"
+        ));
+
+        todasCartas.remove(preflop1);
+        todasCartas.remove(preflop2);
+
+        Collections.shuffle(todasCartas);   //barajo cartas
+
+
+
     }
 
 
