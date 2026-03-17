@@ -86,49 +86,19 @@ public class Cartas {
     }
 
     public boolean sonConsecutivos(String v1, String v2){
-    String[] orden = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
+        String[] orden = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
 
-    int pos1 = Arrays.asList(orden).indexOf(v1);
-    int pos2 = Arrays.asList(orden).indexOf(v2);
-    return Math.abs(pos1-pos2) == 1;
+        int pos1 = Arrays.asList(orden).indexOf(v1);
+        int pos2 = Arrays.asList(orden).indexOf(v2);
+        return Math.abs(pos1-pos2) == 1;
     }
-
-    public void MonteCarloPreflop(){
-        double porcentaje;
-
-        ArrayList<String> todasCartas = new ArrayList<>(Arrays.asList(
-                "AC","2C","3C","4C","5C","6C","7C","8C","9C","JC","QC","KC","10C",
-                "AT","2T","3T","4T","5T","6T","7T","8T","9T","JT","QT","KT","10T",
-                "AP","2P","3P","4P","5P","6P","7P","8P","9P","JP","QP","KP","10P",
-                "AR","2R","3R","4R","5R","6R","7R","8R","9R","JR","QR","KR","10R"
-        ));
-
-        todasCartas.remove(preflop1);
-        todasCartas.remove(preflop2);
-
-        Collections.shuffle(todasCartas);//barajo cartas
-        int index = 0;
-
-        ArrayList<ArrayList<String>> cartasRivales = new ArrayList<>();
-        for (int i = 0; i < jugadores; i++){
-            ArrayList<String> mano = new ArrayList<>();
-            mano.add(todasCartas.get(index++));
-            mano.add(todasCartas.get(index++));
-            cartasRivales.add(mano);
-        }
-
-        ArrayList<String> mesa = new ArrayList<>();
-        for(int i = 0; i < 5; i++){
-            mesa.add(todasCartas.get(index++));
-        }
-
-
-
-
-
-    }
-
-
 
 
 }
+
+
+
+
+
+
+
