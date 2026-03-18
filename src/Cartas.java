@@ -160,8 +160,8 @@ public class Cartas {
             flop3 = sc.nextLine();
             flop3 = flop3.toUpperCase();
         }
-    }
 
+    }
 
 }
 
