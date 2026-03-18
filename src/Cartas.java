@@ -128,13 +128,13 @@ public class Cartas {
         System.out.printf("Tu probabilidad de ganar: %.2f%%%n", porcentaje);
     }
 
-    public void tomarDatosDeFlop(){
+    public void tomarDatosDeFlop() {
         String flop1, flop2, flop3;
 
         System.out.println("Introduce la 1ª carta del flop (ej: AC o KP): ");
         flop1 = sc.nextLine();
         flop1 = flop1.toUpperCase();
-        while(!Arrays.asList(todasCartas).contains(flop1)){
+        while (!Arrays.asList(todasCartas).contains(flop1)) {
             System.out.println("Ha habido un fallo en la escritura de la carta 1º");
             System.out.println("\"Introduce la 1ª carta del flop (ej: AC o KP): ");
             flop1 = sc.nextLine();
@@ -144,7 +144,7 @@ public class Cartas {
         System.out.println("Introduce la 2º carta del flop (ej: AC o KP): ");
         flop2 = sc.nextLine();
         flop2 = flop2.toUpperCase();
-        while(!Arrays.asList(todasCartas).contains(flop2)){
+        while (!Arrays.asList(todasCartas).contains(flop2)) {
             System.out.println("Ha habido un fallo en la escritura de la carta 1º");
             System.out.println("\"Introduce la 2º carta del flop (ej: AC o KP): ");
             flop2 = sc.nextLine();
@@ -154,14 +154,34 @@ public class Cartas {
         System.out.println("Introduce la 3ª carta del flop (ej: AC o KP): ");
         flop3 = sc.nextLine();
         flop3 = flop3.toUpperCase();
-        while(!Arrays.asList(todasCartas).contains(flop3)){
+        while (!Arrays.asList(todasCartas).contains(flop3)) {
             System.out.println("Ha habido un fallo en la escritura de la carta 1º");
             System.out.println("\"Introduce la 3ª carta del flop (ej: AC o KP): ");
             flop3 = sc.nextLine();
             flop3 = flop3.toUpperCase();
         }
 
+        int eleccion;
+        System.out.println("Hay algun jugador que haya abandonado? (Si = 1 // No = 2)");
+        eleccion = sc.nextInt();
+
+        if (eleccion == 1) {
+             System.out.println("Cuantos jugadores han abandonado? ");
+             int abandonoJugadores = sc.nextInt();
+
+             jugadores = jugadores - abandonoJugadores;
+            }
+        if (eleccion == 2) {
+            System.out.println("Ok pues continuamos");
+            }
+
+
+
+
+
     }
+
+
 
 }
 
