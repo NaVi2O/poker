@@ -172,7 +172,7 @@ public class Cartas {
              jugadores = jugadores - abandonoJugadores;
             }
         if (eleccion == 2) {
-            System.out.println("Ok pues continuamos con las predicciones");
+            System.out.println("Ok pues continuamos");
             }
 
 
