@@ -15,6 +15,8 @@ void main() {
 
     cartas.MonteCarloPreFlop();
 
+    cartas.tomarDatosDeFlop();
+
 
 
 
