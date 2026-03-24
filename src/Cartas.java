@@ -175,12 +175,11 @@ public class Cartas {
             System.out.println("Ok pues continuamos");
             }
 
-
-
-
-
-
     }
+
+
+
+
 
 
 
