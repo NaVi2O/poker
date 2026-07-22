@@ -12,10 +12,8 @@ void main() {
     String cartaPreFlop3;
     String cartaFlop;
     String cartaTurn;
-    boolean validacion1 = false;
 
 
-    Cartas cartas = new Cartas();
     Scanner sc = new Scanner(System.in);
 
 
@@ -24,33 +22,11 @@ void main() {
     sc.nextLine();
     Jugadores jugadores = new Jugadores(numJugadores);
 
-
     System.out.println("Pasa las dos cartas que te han tocado en la mano");
     System.out.println("Con este formato (3C, 6T, KP...)");
     System.out.println("CORAZONES = C \nTREBOLES = T\nPICAS = P\nROMBOS = R\n\n");
 
-    //Carta MANO 1
-    System.out.printf("CARTA-MANO-1 =");
-    carta1P = sc.nextLine();
-    while(cartas.validacionCarta1(carta1P) != true){
-        System.out.printf("CARTA-MANO-1 =");
-        carta1P = sc.nextLine();
-    }
-    if(cartas.validacionCarta1(carta1P) == true){
-        System.out.println("CARTA MANO 1 VALIDADA EXITOSAMENTE");
-    }
 
-    //Carta MANO 2
-    System.out.printf("CARTA-MANO-2 =");
-    carta2P = sc.nextLine();
-    while(cartas.validacionCarta2(carta2P) != true){
-        System.out.printf("CARTA-MANO-2 =");
-        carta2P = sc.nextLine();
-
-    }
-    if(cartas.validacionCarta2(carta2P) == true){
-        System.out.println("CARTA MANO 2 VALIDADA EXITOSAMENTE");
-    }
 
 
 
