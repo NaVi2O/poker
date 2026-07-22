@@ -48,25 +48,56 @@ void main() {
 
     }
 
-    //SALE ALGUIEN
-    System.out.println("HAY ALGUN JUGADOR QUE ABANDONA LA PARTIDA (SI[S] O NO[N])");
-    System.out.printf("CONTESTE AQUI = ");
+    //SALE ALGUIEN?
+    System.out.println("Hay algun jugador que abandona la partida (SI[S] O NO[N])");
+    System.out.printf("Conteste aqui = ");
     valoracionAbandona = sc.nextLine();
     System.out.println(" ");
     if(!valoracionAbandona.equals("N") && !valoracionAbandona.equals("S")){
-        System.out.println("HAY ALGUN JUGADOR QUE ABANDONA LA PARTIDA (SI[S] O NO[N])");
-        System.out.printf("CONTESTE AQUI = ");
+        System.out.println("ay algun jugador que abandona la partida (SI[S] O NO[N])");
+        System.out.printf("Conteste aqui = ");
         valoracionAbandona = sc.nextLine();
         System.out.println(" ");
     }
     if(valoracionAbandona.equals("S")){
-        System.out.println("CUANTOS ABANDONAN = ");
+        System.out.println("Cuantos abandonan = ");
         jugAbandona = sc.nextInt();
         sc.nextLine();
         jugadores.arregloJugadores(jugAbandona);
     }
 
+    //AQUI ENTRA LA PRIMERA PREDICCION
 
+
+    //PREFLOP
+    System.out.println("Pasa las tres cartas que han salido en la mesa");
+    System.out.println("Con este formato (3C, 6T, KP...)");
+    System.out.println("CORAZONES = C \nTREBOLES = T\nPICAS = P\nROMBOS = R\n\n");
+
+    //Carta MESA 1
+    System.out.printf("CARTA-MESA-1 = ");
+    cartaPreFlop1 = sc.nextLine();
+    while(cartas.validacionCarta1Mesa(cartaPreFlop1) != true){
+        System.out.printf("CARTA-MESA-1 = ");
+        cartaPreFlop1 = sc.nextLine();
+
+    }
+    //Carta MESA 2
+    System.out.printf("CARTA-MESA-2 = ");
+    cartaPreFlop2 = sc.nextLine();
+    while(cartas.validacionCarta2Mesa(cartaPreFlop2) != true){
+        System.out.printf("CARTA-MESA-2 = ");
+        cartaPreFlop2 = sc.nextLine();
+
+    }
+    //Carta MESA 3
+    System.out.printf("CARTA-MESA-3 = ");
+    cartaPreFlop3 = sc.nextLine();
+    while(cartas.validacionCarta3Mesa(cartaPreFlop3) != true){
+        System.out.printf("CARTA-MESA-3 = ");
+        cartaPreFlop3 = sc.nextLine();
+
+    }
 
 
 

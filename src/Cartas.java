@@ -16,7 +16,6 @@ public class Cartas {
         else{
             return true;
         }
-
     }
 
     public boolean validacionCarta2(String carta2mano) {
@@ -32,10 +31,47 @@ public class Cartas {
         }
 
     }
+    public boolean validacionCarta1Mesa(String carta1mesa) {
+        if(carta1mesa.length() != 2){
+            return false;
+        }
+        String[] letras = carta1mesa.split("");
+        if(!letras[0].equals("A") && !letras[0].equals("2") && !letras[0].equals("3") && !letras[0].equals("4") && !letras[0].equals("5") && !letras[0].equals("6") && !letras[0].equals("7") && !letras[0].equals("8")
+                && !letras[0].equals("9") && !letras[0].equals("J") && !letras[0].equals("Q") && !letras[0].equals("K")){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 
+    public boolean validacionCarta2Mesa(String carta2mesa) {
+        if(carta2mesa.length() != 2){
+            return false;
+        }
+        String[] letras = carta2mesa.split("");
+        if(!letras[0].equals("A") && !letras[0].equals("2") && !letras[0].equals("3") && !letras[0].equals("4") && !letras[0].equals("5") && !letras[0].equals("6") && !letras[0].equals("7") && !letras[0].equals("8")
+                && !letras[0].equals("9") && !letras[0].equals("J") && !letras[0].equals("Q") && !letras[0].equals("K")){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 
-
-
+    public boolean validacionCarta3Mesa(String carta3mesa) {
+        if(carta3mesa.length() != 2){
+            return false;
+        }
+        String[] letras = carta3mesa.split("");
+        if(!letras[0].equals("A") && !letras[0].equals("2") && !letras[0].equals("3") && !letras[0].equals("4") && !letras[0].equals("5") && !letras[0].equals("6") && !letras[0].equals("7") && !letras[0].equals("8")
+                && !letras[0].equals("9") && !letras[0].equals("J") && !letras[0].equals("Q") && !letras[0].equals("K")){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 
 
 }
