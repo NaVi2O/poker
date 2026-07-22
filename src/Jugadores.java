@@ -9,4 +9,9 @@ public class Jugadores {
     public void prueba(){
         System.out.println(numJugadores);
     }
+
+    public void arregloJugadores(int numJugAband){
+        int numJugadoresArr = numJugadores - numJugAband;
+        System.out.println("NUMERO DE JUGADORES ACTUALIZADO DE "+numJugadores+ " A "+numJugadoresArr);
+    }
 }

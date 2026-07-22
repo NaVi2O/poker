@@ -5,6 +5,7 @@ void main() {
 
     int numJugadores;
     int jugAbandona;
+    String valoracionAbandona;
     String carta1P;
     String carta2P;
     String cartaPreFlop1;
@@ -30,25 +31,40 @@ void main() {
     System.out.println("CORAZONES = C \nTREBOLES = T\nPICAS = P\nROMBOS = R\n\n");
 
     //Carta MANO 1
-    System.out.printf("CARTA-MANO-1 =");
+    System.out.printf("CARTA-MANO-1 = ");
     carta1P = sc.nextLine();
     while(cartas.validacionCarta1(carta1P) != true){
-        System.out.printf("CARTA-MANO-1 =");
+        System.out.printf("CARTA-MANO-1 = ");
         carta1P = sc.nextLine();
 
     }
 
     //Carta MANO 2
-    System.out.printf("CARTA-MANO-2 =");
+    System.out.printf("CARTA-MANO-2 = ");
     carta2P = sc.nextLine();
     while(cartas.validacionCarta2(carta2P) != true){
-        System.out.printf("CARTA-MANO-2 =");
+        System.out.printf("CARTA-MANO-2 = ");
         carta1P = sc.nextLine();
 
     }
 
-
-
+    //SALE ALGUIEN
+    System.out.println("HAY ALGUN JUGADOR QUE ABANDONA LA PARTIDA (SI[S] O NO[N])");
+    System.out.printf("CONTESTE AQUI = ");
+    valoracionAbandona = sc.nextLine();
+    System.out.println(" ");
+    if(!valoracionAbandona.equals("N") && !valoracionAbandona.equals("S")){
+        System.out.println("HAY ALGUN JUGADOR QUE ABANDONA LA PARTIDA (SI[S] O NO[N])");
+        System.out.printf("CONTESTE AQUI = ");
+        valoracionAbandona = sc.nextLine();
+        System.out.println(" ");
+    }
+    if(valoracionAbandona.equals("S")){
+        System.out.println("CUANTOS ABANDONAN = ");
+        jugAbandona = sc.nextInt();
+        sc.nextLine();
+        jugadores.arregloJugadores(jugAbandona);
+    }
 
 
 
