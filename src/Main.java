@@ -22,6 +22,10 @@ void main() {
     sc.nextLine();
     Jugadores jugadores = new Jugadores(numJugadores);
 
+    System.out.println("Pasa las dos cartas que te han tocado en la mano");
+    System.out.println("Con este formato (3C, 6T, KP...)");
+    System.out.println("CORAZONES = C \nTREBOLES = T\nPICAS = P\nROMBOS = R\n\n");
+
 
 
 
