@@ -1,83 +1,57 @@
-import java.util.*;
-
 public class Cartas {
-    boolean validacion;
+
+    private static final String[] RANGOS_VALIDOS = {
+            "A", "2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K"
+    };
+    private static final String[] PALOS_VALIDOS = {"C", "R", "T", "P"};
+
     public Cartas() {
     }
+
+    // Valida una carta completa (rango + palo)
+    private boolean validacionCartaGenerica(String carta) {
+        if (carta == null || carta.length() != 2) {
+            return false;
+        }
+        String rango = carta.substring(0, 1);
+        String palo = carta.substring(1, 2);
+
+        boolean rangoValido = false;
+        for (String r : RANGOS_VALIDOS) {
+            if (r.equals(rango)) {
+                rangoValido = true;
+                break;
+            }
+        }
+
+        boolean paloValido = false;
+        for (String p : PALOS_VALIDOS) {
+            if (p.equals(palo)) {
+                paloValido = true;
+                break;
+            }
+        }
+
+        return rangoValido && paloValido;
+    }
+
     public boolean validacionCarta1(String carta1mano) {
-        if(carta1mano.length() != 2){
-            return false;
-        }
-        String[] letras = carta1mano.split("");
-        if(!letras[0].equals("A") && !letras[0].equals("2") && !letras[0].equals("3") && !letras[0].equals("4") && !letras[0].equals("5") && !letras[0].equals("6") && !letras[0].equals("7") && !letras[0].equals("8")
-                && !letras[0].equals("9") && !letras[0].equals("J") && !letras[0].equals("Q") && !letras[0].equals("K")){
-            return false;
-        }
-        else{
-            return true;
-        }
+        return validacionCartaGenerica(carta1mano);
     }
 
     public boolean validacionCarta2(String carta2mano) {
-        if(carta2mano.length() != 2){
-            return false;
-        }
-        String[] letras = carta2mano.split("");
-        if(!letras[1].equals("C") && !letras[1].equals("R") && !letras[1].equals("T") && !letras[1].equals("P") ){
-            return false;
-        }
-        else{
-            return true;
-        }
-
+        return validacionCartaGenerica(carta2mano);
     }
+
     public boolean validacionCarta1Mesa(String carta1mesa) {
-        if(carta1mesa.length() != 2){
-            return false;
-        }
-        String[] letras = carta1mesa.split("");
-        if(!letras[0].equals("A") && !letras[0].equals("2") && !letras[0].equals("3") && !letras[0].equals("4") && !letras[0].equals("5") && !letras[0].equals("6") && !letras[0].equals("7") && !letras[0].equals("8")
-                && !letras[0].equals("9") && !letras[0].equals("J") && !letras[0].equals("Q") && !letras[0].equals("K")){
-            return false;
-        }
-        else{
-            return true;
-        }
+        return validacionCartaGenerica(carta1mesa);
     }
 
     public boolean validacionCarta2Mesa(String carta2mesa) {
-        if(carta2mesa.length() != 2){
-            return false;
-        }
-        String[] letras = carta2mesa.split("");
-        if(!letras[0].equals("A") && !letras[0].equals("2") && !letras[0].equals("3") && !letras[0].equals("4") && !letras[0].equals("5") && !letras[0].equals("6") && !letras[0].equals("7") && !letras[0].equals("8")
-                && !letras[0].equals("9") && !letras[0].equals("J") && !letras[0].equals("Q") && !letras[0].equals("K")){
-            return false;
-        }
-        else{
-            return true;
-        }
+        return validacionCartaGenerica(carta2mesa);
     }
 
     public boolean validacionCarta3Mesa(String carta3mesa) {
-        if(carta3mesa.length() != 2){
-            return false;
-        }
-        String[] letras = carta3mesa.split("");
-        if(!letras[0].equals("A") && !letras[0].equals("2") && !letras[0].equals("3") && !letras[0].equals("4") && !letras[0].equals("5") && !letras[0].equals("6") && !letras[0].equals("7") && !letras[0].equals("8")
-                && !letras[0].equals("9") && !letras[0].equals("J") && !letras[0].equals("Q") && !letras[0].equals("K")){
-            return false;
-        }
-        else{
-            return true;
-        }
+        return validacionCartaGenerica(carta3mesa);
     }
-
-
 }
-
-
-
-
-
-
